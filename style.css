@@ -1,0 +1,186 @@
+:root {
+  /* Primary Colors */
+  --soft-blue: hsl(215, 51%, 70%);
+  --cyan: hsl(178, 100%, 50%);
+  /* Neutral Colors */
+  --very-dark-blue-bg: hsl(217, 54%, 11%);
+  --very-dark-blue-card: hsl(216, 50%, 16%);
+  --very-dark-blue-line: hsl(215, 32%, 27%);
+  --white: hsl(0, 0%, 100%);
+  /* Typography */
+  --font-family: "Outfit", sans-serif;
+  --font-size: 18px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  background-color: var(--very-dark-blue-bg);
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.card {
+  background-color: var(--very-dark-blue-card);
+  border-radius: 15px;
+  padding: 26px;
+  width: 100%;
+  max-width: 375px;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+  transform: scale(0.9);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+.card img:hover {
+  cursor: pointer;
+  transform: scale(1.01);
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: brightness(1) saturate(1.5) hue-rotate(-0deg); /* Ajoute un effet cyan */
+}
+
+.card h1 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.card h1:hover {
+  color: var(--cyan);
+  cursor: pointer;
+}
+
+.card p {
+  color: var(--soft-blue);
+  font-size: 1.15rem;
+  font-weight: 300;
+  line-height: 26px;
+  letter-spacing: 0.5px;
+  margin-bottom: 25px;
+}
+
+.card .info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.card .info .price {
+  color: var(--cyan);
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 1.05rem;
+  letter-spacing: 1px;
+}
+
+.card .info .price img {
+  width: 12px;
+  margin-right: 5px;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+.card .info .time {
+  color: var(--soft-blue);
+  display: flex;
+  align-items: center;
+  font-weight: 300;
+  font-size: 1.05rem;
+}
+
+.card .info .time img {
+  width: 20px;
+  margin-right: 5px;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+.card .creator {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--very-dark-blue-line);
+  padding-top: 20px;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.card .creator img {
+  width: 35px;
+  height: auto;
+  border-radius: 50%;
+  border: 1px solid var(--white);
+  margin-right: 15px;
+  margin-bottom: auto;
+}
+
+.card .creator span {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--soft-blue);
+}
+
+.card .creator span a {
+  font-weight: 400;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.card .creator span a:hover {
+  color: var(--cyan);
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 95%;
+  background-color: var(--cyan);
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  transition: opacity 0.3s ease;
+}
+
+.overlay img {
+  position: absolute; /* ou absolute si nécessaire */
+  z-index: 20; /* Définit une priorité élevée pour l'image */
+  width: auto;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover .overlay {
+  opacity: 0.7; /* Affiche la superposition */
+}
